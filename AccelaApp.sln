@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccelaApp", "AccelaApp\AccelaApp.csproj", "{CF50E371-1353-435F-B72A-82DE20FFFAAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF50E371-1353-435F-B72A-82DE20FFFAAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF50E371-1353-435F-B72A-82DE20FFFAAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF50E371-1353-435F-B72A-82DE20FFFAAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF50E371-1353-435F-B72A-82DE20FFFAAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {721954E6-284D-4690-A6D1-ECA167F8079A}
+	EndGlobalSection
+EndGlobal

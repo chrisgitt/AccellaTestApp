@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AccelaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBL_ADDRESS">
+          <Key>
+            <PropertyRef Name="ADDRESS_ID" />
+          </Key>
+          <Property Name="ADDRESS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PERSON_ID" Type="int" Nullable="false" />
+          <Property Name="STREET" Type="varchar" MaxLength="255" />
+          <Property Name="CITY" Type="varchar" MaxLength="255" />
+          <Property Name="STATE" Type="varchar" MaxLength="255" />
+          <Property Name="POSTAL_CODE" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="TBL_PERSON">
+          <Key>
+            <PropertyRef Name="PERSON_ID" />
+          </Key>
+          <Property Name="PERSON_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="varchar" MaxLength="255" />
+          <Property Name="LAST_NAME" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK__TBL_ADDRE__PERSO__2B3F6F97">
+          <End Role="TBL_PERSON" Type="Self.TBL_PERSON" Multiplicity="1" />
+          <End Role="TBL_ADDRESS" Type="Self.TBL_ADDRESS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_PERSON">
+              <PropertyRef Name="PERSON_ID" />
+            </Principal>
+            <Dependent Role="TBL_ADDRESS">
+              <PropertyRef Name="PERSON_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AccelaModelStoreContainer">
+          <EntitySet Name="TBL_ADDRESS" EntityType="Self.TBL_ADDRESS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_PERSON" EntityType="Self.TBL_PERSON" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__TBL_ADDRE__PERSO__2B3F6F97" Association="Self.FK__TBL_ADDRE__PERSO__2B3F6F97">
+            <End Role="TBL_PERSON" EntitySet="TBL_PERSON" />
+            <End Role="TBL_ADDRESS" EntitySet="TBL_ADDRESS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AccelaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AddressModel">
+          <Key>
+            <PropertyRef Name="ADDRESS_ID" />
+          </Key>
+          <Property Name="ADDRESS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PERSON_ID" Type="Int32" Nullable="false" />
+          <Property Name="STREET" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="STATE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="POSTAL_CODE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_PERSON" Relationship="Self.FK__TBL_ADDRE__PERSO__2B3F6F97" FromRole="TBL_ADDRESS" ToRole="TBL_PERSON" />
+        </EntityType>
+        <EntityType Name="PersonModel">
+          <Key>
+            <PropertyRef Name="PERSON_ID" />
+          </Key>
+          <Property Name="PERSON_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_ADDRESS" Relationship="Self.FK__TBL_ADDRE__PERSO__2B3F6F97" FromRole="TBL_PERSON" ToRole="TBL_ADDRESS" />
+        </EntityType>
+        <Association Name="FK__TBL_ADDRE__PERSO__2B3F6F97">
+          <End Role="TBL_PERSON" Type="AccelaModel.PersonModel" Multiplicity="1" />
+          <End Role="TBL_ADDRESS" Type="AccelaModel.AddressModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_PERSON">
+              <PropertyRef Name="PERSON_ID" />
+            </Principal>
+            <Dependent Role="TBL_ADDRESS">
+              <PropertyRef Name="PERSON_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AccelaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AddressModels" EntityType="AccelaModel.AddressModel" />
+          <EntitySet Name="PersonModels" EntityType="AccelaModel.PersonModel" />
+          <AssociationSet Name="FK__TBL_ADDRE__PERSO__2B3F6F97" Association="Self.FK__TBL_ADDRE__PERSO__2B3F6F97">
+            <End Role="TBL_PERSON" EntitySet="PersonModels" />
+            <End Role="TBL_ADDRESS" EntitySet="AddressModels" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AccelaModelStoreContainer" CdmEntityContainer="AccelaEntities">
+          <EntitySetMapping Name="AddressModels">
+            <EntityTypeMapping TypeName="AccelaModel.AddressModel">
+              <MappingFragment StoreEntitySet="TBL_ADDRESS">
+                <ScalarProperty Name="ADDRESS_ID" ColumnName="ADDRESS_ID" />
+                <ScalarProperty Name="PERSON_ID" ColumnName="PERSON_ID" />
+                <ScalarProperty Name="STREET" ColumnName="STREET" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="POSTAL_CODE" ColumnName="POSTAL_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonModels">
+            <EntityTypeMapping TypeName="AccelaModel.PersonModel">
+              <MappingFragment StoreEntitySet="TBL_PERSON">
+                <ScalarProperty Name="PERSON_ID" ColumnName="PERSON_ID" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
