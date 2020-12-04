@@ -16,4 +16,12 @@ memory and I could see that reflected in some of my calls vs the embedded SQL.
 
 7. I didnt get time to implement a RESTful API. 
 
+8. Again, apologies that this doesent work with a local DB but if you have SSMS 18 run CREATE_DATABASE followed by CREATE_PERSON and finally CREATE_ADDRESS (as this has FK relation to TBL_PERSON). 
+
+9: Data Source=DESKTOP-D0FE3HM;Initial Catalog=Accela;Integrated Security=True
+
+10: Change the Data Source above to your machine name with the AccellaApp.exe.config within AccelaTest\AccelaApp\bin\Debug
+
+11. Start the exe and the entity will pick up the database.
+
 
