@@ -3,7 +3,7 @@
 1. I originally designed this through SQL Server Management Studio. I had never set up a SqlLocalDB before - I have attached the .mdf file and have created the local DB and dataset within
 the application but it is not linked up to the calls on the model. 
 
-2. I have attached the app.config connection string and database scripts you will need to run alongside SSMS. I know this is not what you has asked for, I aplogise. 
+2. I have attached the app.config connection string and database scripts you will need to run alongside SSMS. I know this is not what you has asked for, I aplogise. They are located in the Set Up Files folder.
 
 3. I have attached a video walkthrough of me running the application on my machine of the SSMS instance to show you it working on my side.
 
