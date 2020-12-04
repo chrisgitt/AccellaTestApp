@@ -1,7 +1,7 @@
 # AccellaTestApp
 
 1. I originally designed this through SQL Server Management Studio. I had never set up a SqlLocalDB before - I have attached the .mdf file and have created the local DB and dataset within
-the application but it is not linked up. 
+the application but it is not linked up to the calls on the model. 
 
 2. I have attached the app.config connection string and database scripts you will need to run alongside SSMS. I know this is not what you has asked for, I aplogise. 
 
