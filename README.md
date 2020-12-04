@@ -20,7 +20,7 @@ memory and I could see that reflected in some of my calls vs the embedded SQL.
 
 9: Data Source=DESKTOP-D0FE3HM;Initial Catalog=Accela;Integrated Security=True
 
-10: Change the Data Source above to your machine name with the AccellaApp.exe.config within AccelaTest\AccelaApp\bin\Debug
+10: Change the Data Source above to your machine name with the AccellaApp.exe.config within AccelaTest\AccelaApp\bin\Debug - area to change is marked as **CHANGE THIS TO PC NAME**
 
 11. Start the exe and the entity will pick up the database.
 
